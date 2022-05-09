@@ -7,12 +7,11 @@ import {
     Link
 } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
-//import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 
-import Home from './Home';
+import Home from './Home/Home';
 import Contact from './Contact';
-import About from './About'
+import About from './About/About'
 
 export default class NavbarComp extends Component {
     render() {
@@ -32,19 +31,19 @@ export default class NavbarComp extends Component {
                                 >
                                     <Nav.Link as={Link} to="/home">Home</Nav.Link>
                                     <Nav.Link as={Link} to="/about">About</Nav.Link>
-                                    <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
                                     
                                     <NavDropdown title="Products" id="navbarScrollingDropdown">
-                                    <NavDropdown.Item href="#action3">Dog</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action4">Cat</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action4">Bird</NavDropdown.Item>
+                                    <NavDropdown.Item href="/Products/Dog">Dog</NavDropdown.Item>
+                                    <NavDropdown.Item href="/Products/Cat">Cat</NavDropdown.Item>
+                                    <NavDropdown.Item href="/Products/Rodent">Rodent</NavDropdown.Item>
                                     <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action5">All</NavDropdown.Item>
+                                    <NavDropdown.Item href="Products">All</NavDropdown.Item>
                                     </NavDropdown>
+                                    <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
                                 </Nav>
                                 <Nav>
-                                {/* <img src={ShoppingCartIcon} className="rounded me-2" alt="cart" /> */}
-                                <Nav.Link as={Link} href="#deets">Log in/Sign up</Nav.Link>
+                                <img src="../../public/Images/icons/Cart.png" className="rounded me-2" alt="cart" />
+                                <Nav.Link as={Link} href="login">Log in/Sign up</Nav.Link>
                                 </Nav>
                                 <Form className="d-flex">
                                     <FormControl
