@@ -29,7 +29,7 @@ const product = [
     {
         id:4,
         product_name:"Extreme Cat Distractor",
-        description: "Your cat has seen it all, and for everything you throw at him you're only rewarded with a sleepy yawn? Well, try this!",
+        description: "Your cat has seen it all? Well, try this!Its extreme Cat Distractor!!",
         price:20,
         currency:"$",
         thumb: "http://cdn.dynamicyield.com/petshop/images/Group 120.png",
@@ -37,8 +37,8 @@ const product = [
     },
     {
         id:5,
-        product_name:"Atheletic Performance MAX Cat Collar",
-        description: "For cats who love jogging with their humans, with patented Catdex(R) V3 synthetic fabric.",
+        product_name:"Atheletic Performance Cat Collar",
+        description: "For cats who love jogging with their humans,synthetic fabric.",
         price:11,
         currency:"$",
         thumb: "http://cdn.dynamicyield.com/petshop/images/Group 122.png",
