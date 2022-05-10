@@ -13,6 +13,7 @@ import Home from './Home/Home';
 import Contact from './Contact';
 import About from './About/About'
 
+
 export default class NavbarComp extends Component {
     render() {
         return (
