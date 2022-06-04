@@ -5,6 +5,7 @@ const product = [
         description: "Firm on the outside, all comfy and cozy on the inside.",
         price:15,
         currency:"$",
+        category:"cat",
         thumb: "http://cdn.dynamicyield.com/petshop/images/Group 82.png",
 
     },
@@ -14,6 +15,7 @@ const product = [
         description: "Sweet dreams are made of this. for your cute cat! ",
         price:5,
         currency:"$",
+        category:"cat",
         thumb: "http://cdn.dynamicyield.com/petshop/images/Group 84.png",
 
     },
@@ -23,6 +25,7 @@ const product = [
         description:" Let your cat keep its claws in a scratch-tastis shape.",
         price:15,
         currency:"$",
+        category:"cat",
         thumb: "http://cdn.dynamicyield.com/petshop/images/Group 119.png",
 
     },
@@ -32,6 +35,7 @@ const product = [
         description: "Your cat has seen it all? Well, try this!Its extreme Cat Distractor!!",
         price:20,
         currency:"$",
+        category:"cat",
         thumb: "http://cdn.dynamicyield.com/petshop/images/Group 120.png",
 
     },
@@ -41,6 +45,7 @@ const product = [
         description: "For cats who love jogging with their humans,synthetic fabric.",
         price:11,
         currency:"$",
+        category:"cat",
         thumb: "http://cdn.dynamicyield.com/petshop/images/Group 122.png",
 
     },
@@ -50,6 +55,7 @@ const product = [
         description: "Let your cat scratch while is sits around like the lazy prince(ss) that it is",
         price:11,
         currency:"$",
+        category:"cat",
         thumb: "http://cdn.dynamicyield.com/petshop/images/Group 123.png",
 
     }

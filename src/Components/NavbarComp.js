@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Navbar, NavDropdown, Form, FormControl, Button, Nav } from 'react-bootstrap'
+import { Navbar, NavDropdown, Form, FormControl, Nav } from 'react-bootstrap'
 import {
     BrowserRouter as Router,
     Switch,
@@ -7,11 +7,13 @@ import {
     Link
 } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
-
+import Button from '@mui/material/Button';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import Home from './Home/Home';
 import Contact from './Contact';
 import About from './About/About'
+import SimpleForm from './Form';
 
 
 export default class NavbarComp extends Component {
@@ -43,8 +45,12 @@ export default class NavbarComp extends Component {
                                     <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
                                 </Nav>
                                 <Nav>
-                                <img src="../../public/Images/icons/Cart.png" className="rounded me-2" alt="cart" />
-                                <Nav.Link as={Link} href="login">Log in/Sign up</Nav.Link>
+                                {/* <img src="../../public/Images/icons/Cart.png" className="rounded me-2" alt="cart" /> */}
+                                <Button 
+                                    variant="text"
+                                    startIcon={<ShoppingCartIcon style={{color : 'green'}}/>}>
+                                </Button>
+                                <Nav.Link as={Link} to="/login" href="login">Login</Nav.Link>
                                 </Nav>
                                 <Form className="d-flex">
                                     <FormControl
@@ -53,7 +59,7 @@ export default class NavbarComp extends Component {
                                     className="me-2"
                                     aria-label="Search"
                                     />
-                                    <Button variant="outline-success">Search</Button>
+                                    <Button variant="text" style={{color : 'green'}}>Search</Button>
                                 </Form>
 
                             </Navbar.Collapse>
@@ -62,6 +68,9 @@ export default class NavbarComp extends Component {
                 </div>
                 <div>
                     <Switch>
+                        <Route path="/login">
+                            <SimpleForm />
+                        </Route>
                         <Route path="/about">
                             <About />
                         </Route>
