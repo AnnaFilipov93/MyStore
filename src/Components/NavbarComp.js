@@ -13,7 +13,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Home from './Home/Home';
 import Contact from './Contact';
 import About from './About/About'
-import SimpleForm from './Form';
+import LoginForm from './Form';
 
 
 export default class NavbarComp extends Component {
@@ -69,7 +69,7 @@ export default class NavbarComp extends Component {
                 <div>
                     <Switch>
                         <Route path="/login">
-                            <SimpleForm />
+                            <LoginForm />
                         </Route>
                         <Route path="/about">
                             <About />
