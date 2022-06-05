@@ -1,69 +1,94 @@
-import React, { useState } from 'react';
-import Button from '@mui/material/Button';
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import { useUsers, useCurrentUser } from "./appContext";
 
-function LoginForm(){
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [submitted , setSubmitted] = useState(false);
-  const [buttonString, setButtonString] = useState('Submit')
-  
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-    setSubmitted(false);
-    setButtonString('Submit');
-  }
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: theme.spacing(2),
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-    setSubmitted(false);
-    setButtonString('Submit');
-  }
-  
-  const handleSubmittedChange = (e) => {
-    setSubmitted(!submitted);
-    if (submitted){
-      setButtonString('Your form is submitted!');
-    }
-    else{
-      setButtonString('Your form is submitted!');
+    "& .MuiTextField-root": {
+      margin: theme.spacing(1),
+      width: "300px"
+    },
+    "& .MuiButtonBase-root": {
+      margin: theme.spacing(2)
     }
   }
+}));
+
+const LoginForm = () => {
+  const users = useUsers();
+  const { currentUser, setCurrentUser } = useCurrentUser();
+  const classes = useStyles();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({
+    wrongEmail: "",
+    wrongPassword: ""
+  });
+
+  const validateFields = () => {
+    const user = users.find((u) => u.email === email);
+
+    if (!user) {
+      console.log("No such user");
+      setErrors({ ...errors, wrongEmail: "No Such user" });
+    } else if (user.password !== password) {
+      setErrors({ wrongEmail: "", wrongPassword: "Passwords don't match" });
+      return null;
+    } else {
+      setErrors({ wrongEmail: "", wrongPassword: "" });
+    }
+    return user;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(email, password);
+    const user = validateFields();
+    if (user) {
+      setCurrentUser(user);
+    } else {
+      console.log("you shall not pass");
+    }
+    console.log(currentUser);
+  };
 
   return (
-    <ValidatorForm
-        onSubmit={handleSubmittedChange}
-    >
-        <h2>Simple form</h2>
-        <TextValidator
-            label="Email"
-            onChange={handleEmailChange}
-            name="email"
-            value={email}
-            validators={['required', 'isEmail']}
-            errorMessages={['this field is required', 'email is not valid']}
-        />
-        <br />
-        <TextValidator
-            label="Password"
-            onChange={handlePasswordChange}
-            name="password"
-            type="password"
-            value={password}
-            validators={['required']}
-            errorMessages={['this field is required']}
-        />
-        <br />
-        <Button
-            color="primary"
-            variant="contained"
-            type="submit"
-            disabled={submitted}
-            onClick={handleSubmittedChange}
-        >
-            {buttonString}
+    <form className={classes.root} onSubmit={handleSubmit}>
+      <TextField
+        label="Email"
+        variant="filled"
+        type="email"
+        required
+        value={email}
+        error={Boolean(errors?.wrongEmail)}
+        helperText={errors?.wrongEmail}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <TextField
+        label="Password"
+        variant="filled"
+        type="password"
+        required
+        value={password}
+        error={Boolean(errors?.wrongPassword)}
+        helperText={errors?.wrongPassword}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <div>
+        <Button type="submit" variant="contained" color="primary">
+          Sign in
         </Button>
-    </ValidatorForm>
-);
-}
+      </div>
+    </form>
+  );
+};
+
 export default LoginForm;

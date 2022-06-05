@@ -1,8 +1,9 @@
 import React from 'react'
 import './Main.css';
-import product from "../../Data/product";
+import product from "../../Data/product.json";
 
-const Main = () => {
+const Main = () => {   
+
     console.log(product);
     const listItems = product.map((item) =>
         <div className="card" key={item.id}>

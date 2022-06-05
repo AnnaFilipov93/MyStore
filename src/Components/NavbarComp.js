@@ -24,7 +24,7 @@ export default class NavbarComp extends Component {
 
                     <Navbar bg="light"  expand="lg">
                     <Container fluid>
-                            <Navbar.Brand href="#">SOUL MATE</Navbar.Brand>
+                            <Navbar.Brand href="/home">SOUL MATE</Navbar.Brand>
                             <Navbar.Toggle aria-controls="navbarScroll" />
                             <Navbar.Collapse id="navbarScroll">
                                 <Nav
