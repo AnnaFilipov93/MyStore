@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { useUsers, useCurrentUser } from "./appContext";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
 const LoginForm = () => {
   const users = useUsers();
   const { currentUser, setCurrentUser } = useCurrentUser();
+  const history = useHistory();
   const classes = useStyles();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -54,10 +56,8 @@ const LoginForm = () => {
     const user = validateFields();
     if (user) {
       setCurrentUser(user);
-    } else {
-      console.log("you shall not pass");
+      history.push('/');
     }
-    console.log(currentUser);
   };
 
   return (

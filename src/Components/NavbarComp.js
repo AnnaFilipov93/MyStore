@@ -15,12 +15,15 @@ import Contact from './Contact';
 import About from './About/About'
 import LoginForm from './Form';
 import Basket from './Basket';
+import { useCart, useCurrentUser } from './appContext';
 
 
 export default function NavbarComp(props) {
 
     const {products} = props;
-    const [cartItems, setCartItems] = useState([]);
+    //const [cartItems, setCartItems] = useState([]);
+    const {cart: cartItems, setCart: setCartItems} = useCart();
+    const { currentUser, setCurrentUser } = useCurrentUser();
     console.log("cartItems set : ", cartItems);
 
   const onAdd = (product) => {
@@ -76,7 +79,9 @@ export default function NavbarComp(props) {
                                 <Nav>
                                 <Nav.Link as={Link} to="/basket"><ShoppingCartIcon/></Nav.Link>
                                 
-                                <Nav.Link as={Link} to="/login" href="login">Login</Nav.Link>
+                                {!currentUser ? 
+                                <Nav.Link as={Link} to="/login" href="login">Login</Nav.Link> : 
+                                <Nav.Link as={Link} to="/">Log Out</Nav.Link>}
                                 </Nav>
                                 <Form className="d-flex">
                                     <FormControl

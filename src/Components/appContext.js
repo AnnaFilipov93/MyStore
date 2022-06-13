@@ -1,7 +1,9 @@
 import { createContext, useContext, useState } from "react";
+import productsFromDB from './../Data/product.json';
 
 const usersContext = createContext();
 const productsContext = createContext();
+const cartContext = createContext();
 const currentUserContext = createContext();
 
 export function useUsers() {
@@ -12,8 +14,18 @@ export function useCurrentUser() {
   return useContext(currentUserContext);
 }
 
+export function useProducts() {
+  return useContext(productsContext);
+}
+
+export function useCart() {
+  return useContext(cartContext);
+}
+
 export function AppProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
+  const [products, setProducts] = useState(productsFromDB);
+  const [cart, setCart] = useState([]);
 
   const users = [
     {
@@ -63,7 +75,11 @@ export function AppProvider({ children }) {
   return (
     <usersContext.Provider value={users}>
       <currentUserContext.Provider value={{ currentUser, setCurrentUser }}>
-        {children}
+        <productsContext.Provider value={{products, setProducts}}>
+        <cartContext.Provider value={{cart, setCart}}>
+          {children}
+        </cartContext.Provider>
+        </productsContext.Provider>
       </currentUserContext.Provider>
     </usersContext.Provider>
   );
