@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { Navbar, NavDropdown, Form, FormControl, Nav } from 'react-bootstrap'
 import {
     BrowserRouter as Router,
@@ -14,10 +14,39 @@ import Home from './Home/Home';
 import Contact from './Contact';
 import About from './About/About'
 import LoginForm from './Form';
+import Basket from './Basket';
 
 
-export default class NavbarComp extends Component {
-    render() {
+export default function NavbarComp(props) {
+
+    const {products} = props;
+    const [cartItems, setCartItems] = useState([]);
+    console.log("cartItems set : ", cartItems);
+
+  const onAdd = (product) => {
+    const exist = cartItems.find((x) => x.id === product.id);
+    if (exist) {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...product, qty: 1 }]);
+    }
+  };
+  const onRemove = (product) => {
+    const exist = cartItems.find((x) => x.id === product.id);
+    if (exist.qty === 1) {
+      setCartItems(cartItems.filter((x) => x.id !== product.id));
+    } else {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
+        )
+      );
+    }
+  };
         return (
             <Router>
                 <div>
@@ -45,11 +74,8 @@ export default class NavbarComp extends Component {
                                     <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
                                 </Nav>
                                 <Nav>
-                                {/* <img src="../../public/Images/icons/Cart.png" className="rounded me-2" alt="cart" /> */}
-                                <Button 
-                                    variant="text"
-                                    startIcon={<ShoppingCartIcon style={{color : 'green'}}/>}>
-                                </Button>
+                                <Nav.Link as={Link} to="/basket"><ShoppingCartIcon/></Nav.Link>
+                                
                                 <Nav.Link as={Link} to="/login" href="login">Login</Nav.Link>
                                 </Nav>
                                 <Form className="d-flex">
@@ -77,12 +103,17 @@ export default class NavbarComp extends Component {
                         <Route path="/contact">
                             <Contact />
                         </Route>
+                        <Route path="/basket">
+                            <Basket cartItems={cartItems}
+                                    onAdd={onAdd}
+                                    onRemove={onRemove}/>
+                        </Route>
                         <Route path="/">
-                            <Home />
+                            <Home products={products} onAdd={onAdd}/>
                         </Route>
                     </Switch>
                 </div>
             </Router>
         )
     }
-}
+

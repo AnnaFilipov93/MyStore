@@ -4,8 +4,8 @@ import Footer from '../Footer/Footer';
 import Main from '../Main/Main';
 import Contact from '../Contact';
 
-export default function Home() { 
-    
+export default function Home(props) { 
+    const {products, onAdd} = props;
         return (
             <>  
                 <div className="row">
@@ -23,7 +23,7 @@ export default function Home() {
                             <a href="Products/Rodent" target="_blank">Rodent toys</a>
                         </div>
                 </div>
-                <Main/>
+                <Main onAdd={onAdd} products={products}/>
                 <Contact/>
                 <Footer/>
                 
