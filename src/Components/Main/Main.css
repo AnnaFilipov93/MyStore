@@ -37,7 +37,7 @@
     padding: 30px 50px 20px 50px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    background-color: #22262c;
+    background-color: #cec9c9;
   }
   
   .main_content {
@@ -45,7 +45,7 @@
     width: 70%;
     height: 100%;
     margin: 50px auto;
-    padding: 50px 0 0;
+    padding: 0 0 0;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     -webkit-box-pack: justify;
@@ -115,7 +115,7 @@
   }
   
   .main_content .card:hover  {
-    background-color: #2b3039;
+    background-color: #ffffff;
     -webkit-transform: scale(1.1);
             transform: scale(1.1);
     cursor: pointer;
@@ -123,8 +123,8 @@
 
   
   .main_content .card:hover .btn {
-    background-color: #fe8033;
-    color: rgb(26, 56, 155);
+    background-color: #cec9c9;
+    color: rgb(255, 255, 255);
   }
   
   .btn {

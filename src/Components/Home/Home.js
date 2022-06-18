@@ -22,6 +22,7 @@ export default function Home(props) {
                             <img src="https://www.kolbopet.co.il/wp-content/uploads/2021/05/Rodent-category-1.jpg" alt="Rodent" width="300" height="300"></img>
                             <a href="Products/Rodent" target="_blank">Rodent toys</a>
                         </div>
+                       
                 </div>
                 <Main onAdd={onAdd} products={products}/>
                 <Contact/>

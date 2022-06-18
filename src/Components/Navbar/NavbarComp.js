@@ -10,12 +10,12 @@ import Container from 'react-bootstrap/Container';
 import Button from '@mui/material/Button';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-import Home from './Home/Home';
-import Contact from './Contact';
-import About from './About/About'
-import LoginForm from './Form';
-import Basket from './Basket';
-import { useCart, useCurrentUser } from './appContext';
+import Home from '../Home/Home';
+import Contact from '../Contact';
+import About from '../About/About'
+import LoginForm from '../Form';
+import Basket from '../Basket';
+import { useCart, useCurrentUser } from '../appContext';
 
 
 export default function NavbarComp(props) {
@@ -52,8 +52,8 @@ export default function NavbarComp(props) {
   };
         return (
             <Router>
-                <div>
-
+                <div className='mainContainer'>
+                    
                     <Navbar bg="light"  expand="lg">
                     <Container fluid>
                             <Navbar.Brand href="/home">SOUL MATE</Navbar.Brand>
@@ -76,12 +76,13 @@ export default function NavbarComp(props) {
                                     </NavDropdown>
                                     <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
                                 </Nav>
-                                <Nav>
-                                <Nav.Link as={Link} to="/basket"><ShoppingCartIcon/></Nav.Link>
-                                
-                                {!currentUser ? 
-                                <Nav.Link as={Link} to="/login" href="login">Login</Nav.Link> : 
-                                <Nav.Link as={Link} to="/">Log Out</Nav.Link>}
+                                <span style={{marginLeft:"55%"}}></span>
+                                <Nav >
+                                    <Nav.Link as={Link} to="/basket"><ShoppingCartIcon/></Nav.Link>
+                                    
+                                    {!currentUser ? 
+                                    <Nav.Link as={Link} to="/login" href="login">Login</Nav.Link> : 
+                                    <Nav.Link as={Link} to="/">Log Out</Nav.Link>}
                                 </Nav>
                                 <Form className="d-flex">
                                     <FormControl

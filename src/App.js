@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavbarComp from './Components/NavbarComp';
+import NavbarComp from './Components/Navbar/NavbarComp';
 import { AppProvider } from "./Components/appContext";
 import products from "./Data/product.json";
 

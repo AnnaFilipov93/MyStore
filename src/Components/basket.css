@@ -1,0 +1,53 @@
+
+.imgg {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 75px;
+  }
+
+  .row1 {
+    display: flex;
+    justify-content: center;
+    background-color: #cec9c9;
+    color: #848181
+    
+  }
+  
+  
+    .row1 > div {
+      background-color: #cec9c9;
+      width: 200px;
+      text-align: center;
+      line-height: 30px;
+      font-size: 20px;
+      padding: 5px;
+      ;
+    }
+  
+.add {
+    background-color: #848181;
+    border: none;
+    color: white;
+    padding: 0px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0px 5px;
+    
+    
+}
+.remove{
+    background-color: #848181;
+    border: none;
+    color: white;
+    padding: 0px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0px 5px;
+}
+    
+   

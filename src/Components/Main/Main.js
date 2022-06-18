@@ -23,7 +23,7 @@ const Main = (props) => {
     );
     return (
         <div className='container'>
-            <h3>All Toys</h3>
+            <h3 style={{color:'white'}}>All Toys</h3>
             <div className="main_content">    
                 {listItems}
             </div>

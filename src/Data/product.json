@@ -58,6 +58,37 @@
         "category":"cat",
         "thumb": "http://cdn.dynamicyield.com/petshop/images/Group 123.png"
 
+    },
+    {
+        "id":7,
+        "product_name":"Kong puppy toy",
+        "description": "The KONG Classic is the gold standard of dog toys and has become the staple for dogs",
+        "price":11,
+        "currency":"$",
+        "category":"dog",
+        "thumb": "https://assets.petco.com/petco/image/upload/f_auto,q_auto/44431-center-1"
+
+    },
+    {
+        "id":8,
+        "product_name":"BARK Punk Brocc Broccoli",
+        "description": "This rowdy broccoli dog toy is ready to broc n’ roll! Packed with fluff and made with a large squeaker",
+        "price":11,
+        "currency":"$",
+        "category":"dog",
+        "thumb": "https://target.scene7.com/is/image/Target/GUEST_de10b749-7e11-4633-9f30-b99b6f102a61?wid=488&hei=488&fmt=pjpeg"
+
+    },
+    {
+        "id":9,
+        "product_name":"BARK Chip Stack Dog Toy",
+        "description": "This can of stackable potato chips dog toy! Made with a squeaker, crazy crinkle, and super stretch bungee",
+        "price":11,
+        "currency":"$",
+        "category":"dog",
+        "thumb": "https://target.scene7.com/is/image/Target/GUEST_7eb7a35b-fe0d-4717-b63f-12619650c680"
+
     }
+
 
 ]
