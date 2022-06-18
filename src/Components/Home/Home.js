@@ -5,7 +5,8 @@ import Main from '../Main/Main';
 import Contact from '../Contact';
 
 export default function Home(props) { 
-    const {products, onAdd} = props;
+    const {products, onAdd,queryParam} = props;
+    console.log("queryParam home:" , queryParam);
         return (
             <>  
                 <div className="row">
@@ -24,7 +25,7 @@ export default function Home(props) {
                         </div>
                        
                 </div>
-                <Main onAdd={onAdd} products={products}/>
+                <Main onAdd={onAdd} products={products} queryParam={queryParam}/>
                 <Contact/>
                 <Footer/>
                 

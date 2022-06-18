@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import { Navbar, NavDropdown, Form, FormControl, Nav } from 'react-bootstrap'
 import {
     BrowserRouter as Router,
@@ -21,7 +21,8 @@ import { useCart, useCurrentUser } from '../appContext';
 export default function NavbarComp(props) {
 
     const {products} = props;
-    //const [cartItems, setCartItems] = useState([]);
+    const [queryParam, setQueryParam] = useState('');
+    const [searchValue, setSearchValue] = useState('');
     const {cart: cartItems, setCart: setCartItems} = useCart();
     const { currentUser, setCurrentUser } = useCurrentUser();
     console.log("cartItems set : ", cartItems);
@@ -50,6 +51,10 @@ export default function NavbarComp(props) {
       );
     }
   };
+
+  const logout = () =>{
+    setCurrentUser(null);
+  }
         return (
             <Router>
                 <div className='mainContainer'>
@@ -64,7 +69,7 @@ export default function NavbarComp(props) {
                                     style={{ maxHeight: '100px' }}
                                     navbarScroll
                                 >
-                                    <Nav.Link as={Link} to="/home">Home</Nav.Link>
+                                    <Nav.Link href="/home">Home</Nav.Link>
                                     <Nav.Link as={Link} to="/about">About</Nav.Link>
                                     
                                     <NavDropdown title="Products" id="navbarScrollingDropdown">
@@ -82,7 +87,7 @@ export default function NavbarComp(props) {
                                     
                                     {!currentUser ? 
                                     <Nav.Link as={Link} to="/login" href="login">Login</Nav.Link> : 
-                                    <Nav.Link as={Link} to="/">Log Out</Nav.Link>}
+                                    <Nav.Link as={Link} to="/" onClick={logout}>Logout</Nav.Link>}
                                 </Nav>
                                 <Form className="d-flex">
                                     <FormControl
@@ -90,8 +95,10 @@ export default function NavbarComp(props) {
                                     placeholder="Search"
                                     className="me-2"
                                     aria-label="Search"
+                                    //value={}
+                                    onChange={(input) => {setSearchValue(input.target.value)}}
                                     />
-                                    <Button variant="text" style={{color : 'green'}}>Search</Button>
+                                    <Button variant="text" onClick={()=>{setQueryParam(searchValue)}} style={{color : 'green'}}>Search</Button>
                                 </Form>
 
                             </Navbar.Collapse>
@@ -114,9 +121,13 @@ export default function NavbarComp(props) {
                                     onAdd={onAdd}
                                     onRemove={onRemove}/>
                         </Route>
-                        <Route path="/">
-                            <Home products={products} onAdd={onAdd}/>
+                        <Route path="/home">
+                            <Home products={products} onAdd={onAdd} queryParam={queryParam}/>
                         </Route>
+                        <Route path="/">
+                            <Home products={products} onAdd={onAdd} queryParam={queryParam}/>
+                        </Route>
+                        
                     </Switch>
                 </div>
             </Router>
