@@ -88,6 +88,36 @@
         "category":"dog",
         "thumb": "https://target.scene7.com/is/image/Target/GUEST_7eb7a35b-fe0d-4717-b63f-12619650c680"
 
+    },
+    {
+        "id":10,
+        "product_name":"Rodent feeder toy",
+        "description": "Lets your rodent play with his food!",
+        "price":10,
+        "currency":"$",
+        "category":"rodent",
+        "thumb": "https://litb-cgis.rightinthebox.com/images/x/202108/bps/product/inc/awnxmw1629276910935.jpg"
+
+    },
+    {
+        "id":11,
+        "product_name":"Rabbit Grass Ball",
+        "description": "Grass ball to play and chew on!",
+        "price":7   ,
+        "currency":"$",
+        "category":"rodent",
+        "thumb": "https://ae01.alicdn.com/kf/H0e9efaa5612542589185b5de7df102b4u/Small-Animals-Play-Ball-Rabbit-Hamster-Grass-Ball-Natural-Small-Animal-Activity-Chew-Toys-Rabbits-Bird.jpg_Q90.jpg_.webp"
+
+    },
+    {
+        "id":12,
+        "product_name":"Hamster Plastic Running Ball",
+        "description": "Plastic ball for your hamster to run in!",
+        "price":5,
+        "currency":"$",
+        "category":"rodent",
+        "thumb": "https://ae01.alicdn.com/kf/Hfc3684c396734d89b4682d90f8fb1cc6Y/New-12cm-Small-Animals-Running-Ball-Plastic-Grounder-Hamster-Pet-Small-Exercise-Toy.jpg_Q90.jpg_.webp"
+
     }
 
 

@@ -6,7 +6,7 @@ const Main = (props) => {
     const {onAdd , products,queryParam} = props;
     
     if(queryParam.length !== 0){
-        currentProducts = products.filter(p => p.product_name.includes(queryParam));
+        currentProducts = products.filter(p => p.product_name.toLowerCase().includes(queryParam.toLowerCase()));
     }
     else{
         const path = window.location.pathname;

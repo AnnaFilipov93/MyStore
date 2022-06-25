@@ -95,7 +95,6 @@ export default function NavbarComp(props) {
                                     placeholder="Search"
                                     className="me-2"
                                     aria-label="Search"
-                                    //value={}
                                     onChange={(input) => {setSearchValue(input.target.value)}}
                                     />
                                     <Button variant="text" onClick={()=>{setQueryParam(searchValue)}} style={{color : 'green'}}>Search</Button>
