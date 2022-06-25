@@ -4,15 +4,13 @@ import './Main.css';
 const Main = (props) => {   
     let currentProducts = [];
     const {onAdd , products,queryParam} = props;
-    console.log("queryParam main: " , queryParam);
     
     if(queryParam.length !== 0){
         currentProducts = products.filter(p => p.product_name.includes(queryParam));
     }
     else{
         const path = window.location.pathname;
-        console.log(window.location.pathname);
-        console.log(products);
+    
         if(path === '/' || path === '/home' || path === '/Products' || path === '/Products/Products'){
             currentProducts = products;
         } else if (path.split('/')[2] === 'Dog'){
@@ -38,7 +36,6 @@ const Main = (props) => {
         </div>
 
     );
-    console.log("listItems:", listItems.length);
     return (
         <div className='container'>
             <h3 style={{color:'white'}}>All Toys</h3>

@@ -39,7 +39,7 @@ const LoginForm = () => {
     const user = users.find((u) => u.email === email);
 
     if (!user) {
-      console.log("No such user");
+     
       setErrors({ ...errors, wrongEmail: "No Such user" });
     } else if (user.password !== password) {
       setErrors({ wrongEmail: "", wrongPassword: "Passwords don't match" });
@@ -52,7 +52,6 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password);
     const user = validateFields();
     if (user) {
       setCurrentUser(user);

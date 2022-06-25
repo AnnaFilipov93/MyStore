@@ -6,7 +6,6 @@ import Contact from '../Contact';
 
 export default function Home(props) { 
     const {products, onAdd,queryParam} = props;
-    console.log("queryParam home:" , queryParam);
         return (
             <>  
                 <div className="row">

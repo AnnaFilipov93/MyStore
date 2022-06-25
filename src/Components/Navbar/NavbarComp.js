@@ -25,7 +25,7 @@ export default function NavbarComp(props) {
     const [searchValue, setSearchValue] = useState('');
     const {cart: cartItems, setCart: setCartItems} = useCart();
     const { currentUser, setCurrentUser } = useCurrentUser();
-    console.log("cartItems set : ", cartItems);
+    
 
   const onAdd = (product) => {
     const exist = cartItems.find((x) => x.id === product.id);

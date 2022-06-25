@@ -11,7 +11,6 @@ export default function Basket(props){
     const taxPrice = itemsPrice * 0.14;
     const shippingPrice = itemsPrice > 2000 ? 0 : 20;
     const totalPrice = itemsPrice + taxPrice + shippingPrice;
-    console.log("cartItems: ", cartItems);
     return(
         <div>
             <h2 style={{color: "#848181"}}>Cart items</h2>
@@ -20,7 +19,7 @@ export default function Basket(props){
           <div key={item.id} className="row1">
             <div> <img className="imgg" src={item.thumb} /></div>
             <div style={{color: "#848181"}}  >{item.product_name}</div>
-            {console.log("item.product_name: ", item.product_name)}
+            
             <div >
               <button onClick={() => onRemove(item)} className="remove">
                 <RemoveIcon/>
